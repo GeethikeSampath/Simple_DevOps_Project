@@ -13,3 +13,17 @@ In this project we are going to create a simple CI/CD pipeline to deploy a java 
  - One VM for Ansible.
  - One  VM for Kubernetes Master.
  - Two VMs as Kubernetes Worker nodes.
+### install Jenkin in Ubuntu 22.04
+Before we install Jenkin we need install Java.
+##### Installing Java
+
+```sh
+$ sudo apt update -y
+$ sudo apt install default-jre -y
+$ sudo apt install default-jdk -y
+```
+Verify the installation with:
+```sh
+$ java -version
+$ javac -version
+```
