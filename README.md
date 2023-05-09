@@ -59,12 +59,12 @@ Other users will need to execute the command **source /etc/environment** or **lo
 ### Jenkins Installation
 First, add the repository key to the system:
 ```sh
-$ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+$ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
 ```
-After the key is added the system will return with OK.
+The gpg --dearmor command is used to convert the key into a format that apt recognizes.
 Next, let’s append the Debian package repository address to the server’s sources.list:
 ```sh
-$ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+$ sudo sh -c 'echo deb [signed-by=/usr/share/keyrings/jenkins.gpg] http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 ```
 After both commands have been entered, we’ll run update so that apt will use the new repository.
 ```sh
@@ -86,12 +86,15 @@ $ sudo systemctl status jenkins
 You should get out put as follows;
 ```sh
 Output
-● jenkins.service - LSB: Start Jenkins at boot time
-   Loaded: loaded (/etc/init.d/jenkins; generated)
-   Active: active (exited) since Fri 2020-06-05 21:21:46 UTC; 45s ago
-     Docs: man:systemd-sysv-generator(8)
-    Tasks: 0 (limit: 1137)
-   CGroup: /system.slice/jenkins.service
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2022-04-18 16:07:28 UTC; 2min 3s ago
+   Main PID: 88180 (java)
+      Tasks: 42 (limit: 4665)
+     Memory: 1.1G
+        CPU: 46.997s
+     CGroup: /system.slice/jenkins.service
+             └─88180 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
 ```
 To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: **http://your_server_ip_or_domain:8080**
 
