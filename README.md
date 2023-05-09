@@ -27,3 +27,17 @@ Verify the installation with:
 $ java -version
 $ javac -version
 ```
+#### Setting the JAVA_HOME Environment Variable
+Many programs written using Java use the JAVA_HOME environment variable to determine the Java installation location.
+In this case the installation paths are as follows:
+- OpenJDK 11 is located at **/usr/lib/jvm/java-11-openjdk-amd64/bin/java**
+
+Then open **/etc/environment** using vim or your favorite text editor:
+```sh
+$ sudo vim /etc/environment
+```
+At the end of this file, add the following line, making sure to replace the highlighted path with your own copied path, but **do not include the bin/ portion** of the path:
+```sh
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+```
+
