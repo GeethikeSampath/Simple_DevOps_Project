@@ -70,3 +70,38 @@ After both commands have been entered, we’ll run update so that apt will use t
 ```sh
 $ sudo apt update
 ```
+Finally, we’ll install Jenkins and its dependencies.
+```sh
+$ sudo apt install jenkins
+```
+Now that Jenkins and its dependencies are in place, we’ll start the Jenkins server.
+```sh
+$ sudo systemctl start jenkins
+$ sudo systemctl enable jenkins
+```
+Since systemctl doesn’t display status output, we’ll use the status command to verify that Jenkins started successfully:
+```sh
+$ sudo systemctl status jenkins
+```
+You should get out put as follows;
+```sh
+Output
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Fri 2020-06-05 21:21:46 UTC; 45s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 1137)
+   CGroup: /system.slice/jenkins.service
+```
+To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: **http://your_server_ip_or_domain:8080**
+
+You should receive the Unlock Jenkins screen, which displays the location of the initial password:
+In the terminal window, use the cat command to display the password:
+```sh
+$ sudo systemctl status jenkins
+```
+Copy the 32-character alphanumeric password from the terminal and paste it into the Administrator password field, then click Continue.
+
+The next screen presents the option of installing suggested plugins or selecting specific plugins:
+
+We’ll click the Install suggested plugins option, which will immediately begin the installation process.
