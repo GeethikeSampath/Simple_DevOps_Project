@@ -1,5 +1,5 @@
 # Simple_DevOps_Project
-How to create simple CI/CD project with Jenkin,Maven,Docker and Kubernetes.
+How to create simple CI/CD project with Jenkins,Maven,Docker and Kubernetes.
 ## Requirements
 - Linux and Docker basics
 - Github and Dockerhub basics
@@ -13,8 +13,8 @@ In this project we are going to create a simple CI/CD pipeline to deploy a java 
  - One VM for Ansible.
  - One  VM for Kubernetes Master.
  - Two VMs as Kubernetes Worker nodes.
-### install Jenkin in Ubuntu 22.04
-Before we install Jenkin we need install Java.
+### install Jenkins in Ubuntu 22.04
+Before we install Jenkins we need install Java.
 ##### Installing Java
 
 ```sh
@@ -40,4 +40,19 @@ At the end of this file, add the following line, making sure to replace the high
 ```sh
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 ```
-
+Modifying this file will set the JAVA_HOME path for all users on your system.
+Save the file and exit the editor.
+Now reload this file to apply the changes to your current session:
+```sh
+$ source /etc/environment
+```
+Verify that the environment variable is set:
+```sh
+$ echo $JAVA_HOME
+```
+You’ll see the path you just set:
+```sh
+Output
+/usr/lib/jvm/java-11-openjdk-amd64
+```
+Other users will need to execute the command **source /etc/environment** or **log out and log back** in to apply this setting.
