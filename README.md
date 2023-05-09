@@ -56,3 +56,17 @@ Output
 /usr/lib/jvm/java-11-openjdk-amd64
 ```
 Other users will need to execute the command **source /etc/environment** or **log out and log back** in to apply this setting.
+### Jenkins Installation
+First, add the repository key to the system:
+```sh
+$ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+```
+After the key is added the system will return with OK.
+Next, let’s append the Debian package repository address to the server’s sources.list:
+```sh
+$ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+```
+After both commands have been entered, we’ll run update so that apt will use the new repository.
+```sh
+$ sudo apt update
+```
