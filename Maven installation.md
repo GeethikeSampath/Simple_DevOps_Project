@@ -33,3 +33,15 @@ Java version: 13.0.1, vendor: Oracle Corporation, runtime: /opt/jdk-13.0.1
 Default locale: en, platform encoding: UTF-8
 OS name: "linux", version: "4.15.0-47-generic", arch: "amd64", family: "unix"
 $
+```
+So far we have completed the installation of maven software to support maven plugin on the jenkins console. Let's jump onto Jenkins to complete the remaining steps.
+## Setup maven on Jenkins console
+
+   ### Install maven plugin without restart
+
+    Manage Jenkins > Jenkins Plugins > available > Maven Invoker
+    Manage Jenkins > Jenkins Plugins > available > Maven Integration
+
+    Configure maven path
+
+    Manage Jenkins > Global Tool Configuration > Maven
