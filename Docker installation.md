@@ -1,7 +1,7 @@
 # Installing Docker on Ubuntu 22.04 server
 
 ### Pre-requisites
-1. Ubuntu Linux Instance
+1. Ubuntu Linux 22.04 Instance
 
 ## Installation Steps
 
