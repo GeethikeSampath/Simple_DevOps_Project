@@ -10,8 +10,9 @@ $ tar -xvf apache-maven-3.6.3-bin.tar.gz
 $ mv apache-maven-3.6.3 maven
 ```
 ### Step 2: Setting M2_HOME and Path Variables
+```sh
 $ cd ~
-$ vim .bash_profile
+$ vim .profile
 ```
 Add the following lines to the user profile file (.profile).
 ```sh
@@ -21,7 +22,7 @@ export PATH
 ```
 Relaunch the terminal or execute source .profile to apply the changes.
 ```sh
-$ source .bash_profile
+$ source .profile
 ```
 ### Step 3: Verify the Maven installation
 You should get a out put similar to following, but versions can be different. 
