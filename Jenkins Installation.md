@@ -59,12 +59,14 @@ Other users will need to execute the command **source /etc/environment** or **lo
 ### Jenkins Installation
 First, add the repository key to the system:
 ```sh
-$ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
+$ curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 ```
-The gpg --dearmor command is used to convert the key into a format that apt recognizes.
 Next, let’s append the Debian package repository address to the server’s sources.list:
 ```sh
-$ sudo sh -c 'echo deb [signed-by=/usr/share/keyrings/jenkins.gpg] http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+$ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
 ```
 After both commands have been entered, we’ll run update so that apt will use the new repository.
 ```sh
