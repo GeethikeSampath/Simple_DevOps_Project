@@ -41,4 +41,16 @@ echo \
    ```sh
    sudo docker run hello-world
    ```
-   
+   5. Create a user called dockeradmin
+   ```sh
+   adduser dockeradmin
+   passwd dockeradmin
+   ```
+   6. Add a user to docker group to manage docker 
+   ```sh
+   usermod -aG docker dockeradmin
+   ```
+   7. Assign admin privilages with NO password for docker admin
+   ```sh
+   echo "dockeradmin  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/dockeradmin
+   ```
